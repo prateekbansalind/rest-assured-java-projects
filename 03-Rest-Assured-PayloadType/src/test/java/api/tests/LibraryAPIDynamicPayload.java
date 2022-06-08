@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static helper.Payload.*;
 import static io.restassured.RestAssured.*;
 
-public class LibraryAPI {
+public class LibraryAPIDynamicPayload {
 
     final String BASE_URI = "http://216.10.245.166";
 
