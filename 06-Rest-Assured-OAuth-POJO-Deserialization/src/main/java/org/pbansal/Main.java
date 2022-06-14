@@ -1,5 +1,6 @@
 package org.pbansal;
 
+import helper.GetCourse;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
@@ -7,6 +8,7 @@ import io.restassured.path.json.JsonPath;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -24,7 +26,7 @@ public class Main {
         driver.findElement(By.xpath("//input[@type='email']")).sendKeys("pbautomate");
         String buttonXpath = "//span[contains(text(), 'Next')]";
         driver.findElement(By.xpath(buttonXpath)).click();
-        Thread.sleep(20000);
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//input[@type='password']")).sendKeys("hPnY#kWLk&9%qR%sAFvYd73H^");
         driver.findElement(By.xpath(buttonXpath)).click();
         Thread.sleep(5000);
@@ -53,14 +55,17 @@ public class Main {
         System.out.println(access_token);
 
         // get the json response
-        given().
+        GetCourse response = given().
                 contentType("application/json").
                 queryParam("access_token", access_token)
-                .expect().defaultParser(Parser.JSON).
+                .expect().defaultParser(Parser.JSON).  // this line make sure that the response that we are receiving should parse to JSON.
         when()
                 .get("https://rahulshettyacademy.com/getCourse.php").
         then().
-                log().all().
-                extract().response();
+                extract().as(GetCourse.class);
+
+        // response validation
+        Assert.assertEquals(response.getInstructor(), "RahulShetty");
+        Assert.assertEquals(response.getLinkedIn(), "https://www.linkedin.com/in/rahul-shetty-trainer/");
     }
 }
