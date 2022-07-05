@@ -2,6 +2,9 @@ package helper;
 
 public class Api {
 
+    private String courseTitle;
+    private String price;
+
     public String getCourseTitle() {
         return courseTitle;
     }
@@ -18,6 +21,5 @@ public class Api {
         this.price = price;
     }
 
-    private String courseTitle;
-    private String price;
+
 }

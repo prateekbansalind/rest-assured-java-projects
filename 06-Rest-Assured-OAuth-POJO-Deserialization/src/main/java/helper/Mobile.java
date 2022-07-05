@@ -1,9 +1,9 @@
 package helper;
 
 public class Mobile {
-
     private String courseTitle;
     private String price;
+
 
     public String getCourseTitle() {
         return courseTitle;

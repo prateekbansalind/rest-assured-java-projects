@@ -1,6 +1,8 @@
 package helper;
 
 public class WebAutomation {
+    private String courseTitle;
+    private String price;
 
     public String getCourseTitle() {
         return courseTitle;
@@ -18,6 +20,4 @@ public class WebAutomation {
         this.price = price;
     }
 
-    private String courseTitle;
-    private String price;
 }
