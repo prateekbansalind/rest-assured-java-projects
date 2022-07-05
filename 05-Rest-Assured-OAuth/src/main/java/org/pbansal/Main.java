@@ -21,11 +21,11 @@ public class Main {
 
         driver.get("https://accounts.google.com/o/oauth2/v2/auth/identifier?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&auth_url=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fv2%2Fauth&client_id=692183103107-p0m7ent2hk7suguv4vq22hjcfhcr43pj.apps.googleusercontent.com&response_type=code&redirect_uri=https%3A%2F%2Frahulshettyacademy.com%2FgetCourse.php&flowName=GeneralOAuthFlow");
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//input[@type='email']")).sendKeys("pbautomate");
+        driver.findElement(By.xpath("//input[@type='email']")).sendKeys("yourgoogleaccountusername");
         String buttonXpath = "//span[contains(text(), 'Next')]";
         driver.findElement(By.xpath(buttonXpath)).click();
         Thread.sleep(20000);
-        driver.findElement(By.xpath("//input[@type='password']")).sendKeys("hPnY#kWLk&9%qR%sAFvYd73H^");
+        driver.findElement(By.xpath("//input[@type='password']")).sendKeys("yourgoogleaccountpassword");
         driver.findElement(By.xpath(buttonXpath)).click();
         Thread.sleep(5000);
         String resLinkFromAuthSer = driver.getCurrentUrl();
